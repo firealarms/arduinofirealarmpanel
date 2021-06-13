@@ -1,0 +1,101 @@
+//Please sub to my youtube! https://www.youtube.com/channel/UCbinAc9rWWyRP-NEONYpkRg
+//Edit the zones etc how you want.
+//Everything is still under develepment sooo...
+
+
+
+
+#include <LiquidCrystal.h>
+
+
+LiquidCrystal lcd(1, 2 ,4 ,5 ,6 ,7);
+
+
+
+
+const int ZONE1 = 9;
+const int ZONE2 = 10;
+const int ZONE3 = 11;
+const int ZONE4 = 12;
+
+const int LED_PIN = 13;
+
+
+
+
+
+
+void setup(){
+
+    lcd.begin(16,2);
+
+    pinMode( ZONE1, INPUT_PULLUP );
+     pinMode( ZONE2, INPUT_PULLUP );
+      pinMode( ZONE3, INPUT_PULLUP );
+       pinMode( ZONE4, INPUT_PULLUP );
+
+    pinMode( LED_PIN, OUTPUT );
+
+    lcd.print("System Normal");
+
+}
+
+
+
+void loop(){
+   
+  int value;
+         value = digitalRead( ZONE1 );
+
+
+
+    if ( value == HIGH ){
+
+        digitalWrite( LED_PIN, LOW );
+
+    }else{lcd.clear();
+
+        digitalWrite(LED_PIN, HIGH ); lcd.print("FIRE ZONE1"); delay(9000); lcd.clear();}
+
+
+
+     value = digitalRead( ZONE2 );
+
+
+
+    if ( value == HIGH ){
+
+        digitalWrite( LED_PIN, LOW );
+
+    }else{lcd.clear();
+
+        digitalWrite(LED_PIN, HIGH ); lcd.print("FIRE ZONE2"); delay(9000); lcd.clear();}
+
+
+     value = digitalRead( ZONE3 );
+
+
+
+    if ( value == HIGH ){
+
+        digitalWrite( LED_PIN, LOW );
+
+    }else{lcd.clear();
+
+        digitalWrite(LED_PIN, HIGH ); lcd.print("FIRE ZONE3"); delay(9000); lcd.clear();}
+
+        
+
+     value = digitalRead( ZONE4 );
+
+
+
+    if ( value == HIGH ){
+
+        digitalWrite( LED_PIN, LOW );
+
+    }else{ digitalWrite(LED_PIN, HIGH); lcd.clear(); lcd.print("FIRE ZONE4"); delay(9000); lcd.clear(); 
+ 
+                       
+
+    } }
